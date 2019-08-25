@@ -5,7 +5,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-        This is a React app. My goal is to build a personal dashboard. For now it is just a "Hello World" app.
+        <p>This is a "Hello World" React app.</p>
+        <p>My goal is to build a personal dashboard.</p>
     </div>
   );
 }
