@@ -2,11 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Dashboard from './components/Dashboard';
+import Todo from './components/Todo';
+
 function App() {
   return (
     <div className="App">
-        <p>This is a "Hello World" React app.</p>
-        <p>My goal is to build a personal dashboard.</p>
+        <Dashboard />
+        <Todo />
     </div>
   );
 }
