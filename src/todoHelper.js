@@ -63,7 +63,7 @@ export const addTodo = (desc, date, todoList) => {
     return todoList.sort(todoCompare);
 }
 
-const todoCompare = (todoA, todoB) => {
+export const todoCompare = (todoA, todoB) => {
     if (todoA.year < todoB.year) {return -1;}
     if (todoA.year > todoB.year) {return 1;}
     if (todoA.month < todoB.month) {return -1;}

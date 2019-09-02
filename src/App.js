@@ -9,6 +9,7 @@ import Habits from './components/Habits';
 
 // Import helper functions
 import {initTodo, addTodo} from './todoHelper';
+import {initHabits} from './habitHelper';
 
 class App extends React.Component {
     constructor(props) {
@@ -16,9 +17,11 @@ class App extends React.Component {
         this.change_screen = this.change_screen.bind(this);
         this.complete_todo = this.complete_todo.bind(this);
         this.add_todo = this.add_todo.bind(this);
+        this.complete_habit = this.complete_habit.bind(this);
         this.state = {
             currentScreen: "todo",
-            todoList: initTodo()
+            todoList: initTodo(),
+            habitList: initHabits()
         };
     }
 
@@ -39,6 +42,13 @@ class App extends React.Component {
         this.setState({todoList: addTodo(desc, date, this.state.todoList)});
     }
 
+    // Mark a habit as done.
+    complete_habit(habit_num) {
+        const new_habit_list = this.state.habitList;
+        new_habit_list.splice(habit_num,1);
+        this.setState({habitList: new_habit_list});
+    }
+
     render() {
         let main_screen;
         if (this.state.currentScreen === "todo") {
@@ -49,7 +59,10 @@ class App extends React.Component {
             />
         }
         else if (this.state.currentScreen === "habits") {
-            main_screen = <Habits />
+            main_screen = <Habits
+                habitList={this.state.habitList}
+                onCompleteHabit={this.complete_habit}
+            />
         }
         return (
             <div className="App">
