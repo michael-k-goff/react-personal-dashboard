@@ -2,15 +2,19 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// Import components
 import Dashboard from './components/Dashboard';
 import Todo from './components/Todo';
 import Habits from './components/Habits';
+
+// Import helper functions
+import {initTodo} from './todoHelper';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.change_screen = this.change_screen.bind(this);
-        this.state = {currentScreen: "todo"};
+        this.state = {currentScreen: "todo", todoList: initTodo()};
     }
 
     change_screen(new_screen) {
@@ -20,7 +24,7 @@ class App extends React.Component {
     render() {
         let main_screen;
         if (this.state.currentScreen === "todo") {
-            main_screen = <Todo />
+            main_screen = <Todo todoList={this.state.todoList}/>
         }
         else if (this.state.currentScreen === "habits") {
             main_screen = <Habits />
