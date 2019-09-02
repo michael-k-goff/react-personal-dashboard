@@ -50,6 +50,19 @@ export const blockTodo = (todoList) => {
     return result;
 }
 
+export const addTodo = (desc, date, todoList) => {
+    var [year, month, day] = date.split('-');
+    todoList = todoList.concat(
+        {
+            description:desc,
+            year:parseInt(year),
+            month:parseInt(month),
+            day:parseInt(day)
+        }
+    );
+    return todoList.sort(todoCompare);
+}
+
 const todoCompare = (todoA, todoB) => {
     if (todoA.year < todoB.year) {return -1;}
     if (todoA.year > todoB.year) {return 1;}
