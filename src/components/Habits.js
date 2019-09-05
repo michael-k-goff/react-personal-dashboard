@@ -11,8 +11,12 @@ const Habits = (props) => {
     return (
         <StyledHabits>
             <h1>Habits</h1>
-            <HabitList habitList={props.habitList} onCompleteHabit={props.onCompleteHabit} />
-            <HabitForm />
+            <HabitList
+                habitList={props.habitList}
+                onCompleteHabit={props.onCompleteHabit}
+                onUpdateHabit={props.onUpdateHabit}
+            />
+            <HabitForm onAddHabit={props.onAddHabit} />
         </StyledHabits>
     );
 }
