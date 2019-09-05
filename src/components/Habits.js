@@ -6,6 +6,7 @@ import {StyledHabits} from './styles/StyledHabits';
 // Import helpers
 import HabitList from './HabitList';
 import HabitForm from './HabitForm';
+import HabitCheckIn from './HabitCheckIn';
 
 const Habits = (props) => {
     return (
@@ -17,6 +18,10 @@ const Habits = (props) => {
                 onUpdateHabit={props.onUpdateHabit}
             />
             <HabitForm onAddHabit={props.onAddHabit} />
+            <HabitCheckIn
+                habitList={props.habitList}
+                onUpdateHabit={props.onUpdateHabit}
+            />
         </StyledHabits>
     );
 }

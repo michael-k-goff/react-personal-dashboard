@@ -48,8 +48,6 @@ const HabitList = (props) => {
         <div key={index}>
             <HabitCompleteButton onCompleteHabit={props.onCompleteHabit} habitIndex={index} />
             {habit.description}: Maintained since {habit.month}-{habit.day}-{habit.year}
-            &nbsp;&nbsp;&nbsp;&nbsp; Habit broken?
-            <HabitUpdateForm onUpdateHabit={props.onUpdateHabit} habit_num={index} />
         </div>
     );
     return (
