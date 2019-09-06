@@ -9,7 +9,7 @@ import Habits from './components/Habits';
 
 // Import helper functions
 import {initTodo, addTodo} from './todoHelper';
-import {initHabits, addHabit, updateHabit} from './habitHelper';
+import {initHabits, initHabitUpdate, addHabit, updateHabit} from './habitHelper';
 
 class App extends React.Component {
     constructor(props) {
@@ -23,7 +23,8 @@ class App extends React.Component {
         this.state = {
             currentScreen: "todo",
             todoList: initTodo(),
-            habitList: initHabits()
+            habitList: initHabits(),
+            habitDate: initHabitUpdate()
         };
     }
 
@@ -78,11 +79,15 @@ class App extends React.Component {
                 onCompleteHabit={this.complete_habit}
                 onAddHabit={this.add_habit}
                 onUpdateHabit={this.update_habit}
+                habitUpdate={this.state.habitDate}
             />
         }
         return (
             <div className="App">
-                <Dashboard onScreenChange={this.change_screen}/>
+                <Dashboard
+                    onScreenChange={this.change_screen}
+                    habitUpdate={this.state.habitDate}
+                />
                 {main_screen}
             </div>
         );

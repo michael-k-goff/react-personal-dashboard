@@ -14,9 +14,11 @@ const Welcome = (props) => {
 
 const GeneralInfo = (props) => {
     const cur_date = new Date();
+    const habit_date = props.habitUpdate;
     return (
         <div>
-            It is {cur_date.getMonth()+1}-{cur_date.getDate()}-{cur_date.getFullYear()}. (Some more general info)
+            <p>It is {cur_date.getMonth()+1}-{cur_date.getDate()}-{cur_date.getFullYear()}.</p>
+            <p>Last check-in on habits: {habit_date.month}-{habit_date.day}-{habit_date.year}.</p>
         </div>
     );
 }
@@ -59,7 +61,7 @@ const Dashboard = (props) => {
     return (
         <StyledDashboard>
             <Welcome name="User" />
-            <GeneralInfo />
+            <GeneralInfo habitUpdate={props.habitUpdate} />
             <TodoButton onScreenChange={props.onScreenChange}/>
             <HabitButton onScreenChange={props.onScreenChange}/>
         </StyledDashboard>
