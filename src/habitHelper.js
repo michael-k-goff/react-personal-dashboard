@@ -9,12 +9,16 @@ export const initHabits = () => {
         {description:"Work", year:2018, month:3, day:31},
         {description:"Sleep", year:2019, month:8, day:15}
     ];
-    return arr.sort(todoCompare);
+    return 'habitList' in window.localStorage ?
+        JSON.parse(window.localStorage.getItem('habitList')) :
+        arr.sort(todoCompare);
 }
 
 export const initHabitUpdate = () => {
     const cur_date = new Date();
-    return {
+    return 'habitDate' in window.localStorage ?
+    JSON.parse(window.localStorage.getItem('habitDate')) : 
+    {
         year:parseInt(cur_date.getFullYear()),
         month:parseInt(cur_date.getMonth()+1),
         day:parseInt(cur_date.getDate())

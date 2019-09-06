@@ -65,6 +65,11 @@ class App extends React.Component {
     }
 
     render() {
+        // Save data locally
+        window.localStorage.setItem('todoList',JSON.stringify(this.state.todoList));
+        window.localStorage.setItem('habitList',JSON.stringify(this.state.habitList));
+        window.localStorage.setItem('habitDate',JSON.stringify(this.state.habitDate));
+
         let main_screen;
         if (this.state.currentScreen === "todo") {
             main_screen = <Todo

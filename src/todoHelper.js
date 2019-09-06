@@ -14,7 +14,9 @@ export const initTodo = () => {
         {description:"Task Aleph", year:2020, month:3, day:31},
         {description:"Late Task", year:2019, month:8, day:15}
     ];
-    return arr.sort(todoCompare);
+    return 'todoList' in window.localStorage ?
+        JSON.parse(window.localStorage.getItem('todoList')) :
+        arr.sort(todoCompare);
 }
 
 // Take a single todo list and return it blocked out into date groups
