@@ -6,10 +6,12 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import Todo from './components/Todo';
 import Habits from './components/Habits';
+import Settings from './components/Settings';
 
 // Import helper functions
 import {initTodo, addTodo} from './todoHelper';
 import {initHabits, initHabitUpdate, addHabit, updateHabit} from './habitHelper';
+import {initName} from './helper';
 
 class App extends React.Component {
     constructor(props) {
@@ -20,11 +22,13 @@ class App extends React.Component {
         this.complete_habit = this.complete_habit.bind(this);
         this.add_habit = this.add_habit.bind(this);
         this.update_habit = this.update_habit.bind(this);
+        this.change_name = this.change_name.bind(this);
         this.state = {
             currentScreen: "todo",
             todoList: initTodo(),
             habitList: initHabits(),
-            habitDate: initHabitUpdate()
+            habitDate: initHabitUpdate(),
+            userName: initName()
         };
     }
 
@@ -64,11 +68,17 @@ class App extends React.Component {
         this.setState({habitList: addHabit(desc, this.state.habitList)});
     }
 
+    // Change name
+    change_name(new_name) {
+        this.setState({userName: new_name});
+    }
+
     render() {
         // Save data locally
         window.localStorage.setItem('todoList',JSON.stringify(this.state.todoList));
         window.localStorage.setItem('habitList',JSON.stringify(this.state.habitList));
         window.localStorage.setItem('habitDate',JSON.stringify(this.state.habitDate));
+        window.localStorage.setItem('userName',this.state.userName);
 
         let main_screen;
         if (this.state.currentScreen === "todo") {
@@ -87,12 +97,19 @@ class App extends React.Component {
                 habitUpdate={this.state.habitDate}
             />
         }
+        else if (this.state.currentScreen === "settings") {
+            main_screen = <Settings
+                onChangeName = {this.change_name}
+                name = {this.state.userName}
+            />
+        }
         return (
             <div className="App">
                 <Dashboard
                     onScreenChange={this.change_screen}
                     habitUpdate={this.state.habitDate}
                     todoList={this.state.todoList}
+                    userName={this.state.userName}
                 />
                 {main_screen}
             </div>

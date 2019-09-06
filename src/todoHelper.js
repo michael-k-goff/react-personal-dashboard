@@ -11,12 +11,12 @@ import {saveData} from './helper';
 // Will eventually be initialized to be empty, but for now some test values
 export const initTodo = () => {
     var arr = [
-        {description:"Today 1", year:2019, month:9, day:5},
-        {description:"Today 2", year:2019, month:9, day:5},
-        {description:"Tomorrow 1", year:2019, month:9, day:6},
-        {description:"Tomorrow 2", year:2019, month:9, day:6},
-        {description:"This Week 1", year:2019, month:9, day:8},
-        {description:"This Week 2", year:2019, month:9, day:9},
+        {description:"Today 1", year:2019, month:9, day:6},
+        {description:"Today 2", year:2019, month:9, day:6},
+        {description:"Tomorrow 1", year:2019, month:9, day:7},
+        {description:"Tomorrow 2", year:2019, month:9, day:7},
+        {description:"This Week 1", year:2019, month:9, day:9},
+        {description:"This Week 2", year:2019, month:9, day:10},
         {description:"This Month 1", year:2019, month:9, day:20},
         {description:"This Month 2", year:2019, month:9, day:19},
         {description:"This Year 1", year:2019, month:11, day:20},
