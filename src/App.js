@@ -92,6 +92,7 @@ class App extends React.Component {
                 <Dashboard
                     onScreenChange={this.change_screen}
                     habitUpdate={this.state.habitDate}
+                    todoList={this.state.todoList}
                 />
                 {main_screen}
             </div>

@@ -103,6 +103,24 @@ export const blockTodo = (todoList) => {
     return result;
 }
 
+export const shortMessage = (todoList) => {
+    const blocks = blockTodo(todoList);
+    if (blocks.length == 0) {
+        return "You have nothing to do.";
+    }
+    const num = blocks[0][1].length;
+    const message = {
+        "Overdue":"that are late",
+        "Today":"today",
+        "Tomorrow":"tomorrow",
+        "This Week":"this week",
+        "This Month":"this month",
+        "This Year":"this year",
+        "Future":"in the future"
+    }[blocks[0][0]];
+    return `You have ${num} thing${num==1?"":"s"} to do ${message}.`;
+}
+
 // Add a new todo to the list.
 export const addTodo = (desc, date, todoList) => {
     var [year, month, day] = date.split('-');
