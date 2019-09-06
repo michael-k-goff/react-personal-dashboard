@@ -1,11 +1,12 @@
 import React from 'react';
+import {formatDate} from '../helper';
 
 class HabitCheckIn extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
-        this.state = {dates: props.habitList.map((habit)=>"2019-09-01")};
+        this.state = {dates: props.habitList.map((habit)=>"1899-12-31"), habitUpdate:props.habitUpdate};
     }
 
     handleSubmit(event) {
@@ -33,8 +34,10 @@ class HabitCheckIn extends React.Component {
                 <input type="date" onChange={callbackGenerator(index)} />
             </div>
         );
+        console.log(formatDate(this.state.habitUpdate));
         return (
             <form onSubmit={this.handleSubmit}>
+                Last check-in was on {formatDate(this.state.habitUpdate)}.
                 {habitList}
                 <input type="submit" value="Update" />
             </form>

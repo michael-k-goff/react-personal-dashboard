@@ -20,32 +20,6 @@ class HabitCompleteButton extends React.Component {
     }
 }
 
-class HabitUpdateForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleUpdate = this.handleUpdate.bind(this);
-        this.handleChangeDate = this.handleChangeDate.bind(this);
-    }
-    componentDidMount() {
-        this.setState({date:"2019-01-01"});
-    }
-    handleChangeDate(event) {
-        this.setState({date: event.target.value});
-    }
-    handleUpdate(event) {
-        event.preventDefault();
-        this.props.onUpdateHabit(this.props.habit_num, this.state.date);
-    }
-    render() {
-        return (
-            <form onSubmit={this.handleUpdate}>
-                <input type="date" onChange={this.handleChangeDate} />
-                <input type="submit" value="Submit" />
-            </form>
-        );
-    }
-}
-
 const HabitList = (props) => {
     const habitList = props.habitList.map((habit,index) =>
         <div key={index}>

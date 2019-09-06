@@ -105,7 +105,7 @@ export const blockTodo = (todoList) => {
 
 export const shortMessage = (todoList) => {
     const blocks = blockTodo(todoList);
-    if (blocks.length == 0) {
+    if (blocks.length === 0) {
         return "You have nothing to do.";
     }
     const num = blocks[0][1].length;
@@ -118,7 +118,7 @@ export const shortMessage = (todoList) => {
         "This Year":"this year",
         "Future":"in the future"
     }[blocks[0][0]];
-    return `You have ${num} thing${num==1?"":"s"} to do ${message}.`;
+    return `You have ${num} thing${num===1?"":"s"} to do ${message}.`;
 }
 
 // Add a new todo to the list.
@@ -149,8 +149,8 @@ export const todoCompare = (todoA, todoB) => {
 
 // Number of days in a month.
 const num_days_month = (todo) => {
-    if (todo["month"] == 2) {
-        if (todo["year"]%400 == 0 || (todo["year"]%100 != 0 && todo["year"]%4==0)) {
+    if (todo["month"] === 2) {
+        if (todo["year"]%400 === 0 || (todo["year"]%100 !== 0 && todo["year"]%4===0)) {
             return 29;
         }
         else {

@@ -22,10 +22,14 @@ class Settings extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.name} onChange={this.handleNameChange} />
-                <input type="submit" value="Change Name" />
-            </form>
+            <div>
+                Settings
+                <form onSubmit={this.handleSubmit}>
+                    Change name
+                    <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+                    <input type="submit" value="Change Name" />
+                </form>
+            </div>
         );
     }
 }

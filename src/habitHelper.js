@@ -41,6 +41,9 @@ export const addHabit = (desc, habitList) => {
 
 export const updateHabit = (habit,date) => {
     const date_components = date.split('-')
+    if (parseInt(date_components[0]) < 2000) {
+        return habit;
+    }
     habit["year"] = parseInt(date_components[0]);
     habit["month"] = parseInt(date_components[1]);
     habit["day"] = parseInt(date_components[2]);

@@ -17,10 +17,13 @@ const Habits = (props) => {
                 onCompleteHabit={props.onCompleteHabit}
                 onUpdateHabit={props.onUpdateHabit}
             />
+            <br />
             <HabitForm onAddHabit={props.onAddHabit} />
+            <br />
             <HabitCheckIn
                 habitList={props.habitList}
                 onUpdateHabit={props.onUpdateHabit}
+                habitUpdate={props.habitUpdate}
             />
         </StyledHabits>
     );
