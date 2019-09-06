@@ -6,6 +6,7 @@ import {StyledTodo} from './styles/StyledTodo';
 
 // Import helpers
 import {blockTodo} from '../todoHelper';
+import {formatDate} from '../helper';
 
 // Component for the button that completes a todo item
 class TodoCompleteButton extends React.Component {
@@ -33,7 +34,7 @@ const TodoItem = (props) => {
                 onCompleteTodo={props.onCompleteTodo}
                 todoIndex={props.todoIndex}
             />
-            {props.todo.description}: {props.todo.month}-{props.todo.day}-{props.todo.year}
+            {props.todo.description}: {formatDate(props.todo)}
         </div>
     );
 }

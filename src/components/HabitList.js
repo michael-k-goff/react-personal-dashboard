@@ -1,5 +1,8 @@
 import React from 'react';
 
+//Helpers
+import {formatDate} from '../helper';
+
 class HabitCompleteButton extends React.Component {
     constructor(props) {
         super(props);
@@ -47,7 +50,7 @@ const HabitList = (props) => {
     const habitList = props.habitList.map((habit,index) =>
         <div key={index}>
             <HabitCompleteButton onCompleteHabit={props.onCompleteHabit} habitIndex={index} />
-            {habit.description}: Maintained since {habit.month}-{habit.day}-{habit.year}
+            {habit.description}: Maintained since {formatDate(habit)}
         </div>
     );
     return (
