@@ -1,6 +1,7 @@
 // Helper functions for habits
 
 import {todoCompare} from './todoHelper';
+import {saveData} from './helper';
 
 export const initHabits = () => {
     var arr = [
@@ -9,20 +10,20 @@ export const initHabits = () => {
         {description:"Work", year:2018, month:3, day:31},
         {description:"Sleep", year:2019, month:8, day:15}
     ];
-    return 'habitList' in window.localStorage ?
+    return ('habitList' in window.localStorage && saveData) ?
         JSON.parse(window.localStorage.getItem('habitList')) :
         arr.sort(todoCompare);
 }
 
 export const initHabitUpdate = () => {
     const cur_date = new Date();
-    return 'habitDate' in window.localStorage ?
-    JSON.parse(window.localStorage.getItem('habitDate')) : 
-    {
-        year:parseInt(cur_date.getFullYear()),
-        month:parseInt(cur_date.getMonth()+1),
-        day:parseInt(cur_date.getDate())
-    };
+    return ('habitDate' in window.localStorage && saveData) ?
+        JSON.parse(window.localStorage.getItem('habitDate')) :
+        {
+            year:parseInt(cur_date.getFullYear()),
+            month:parseInt(cur_date.getMonth()+1),
+            day:parseInt(cur_date.getDate())
+        };
 }
 
 export const addHabit = (desc, habitList) => {
