@@ -1,7 +1,7 @@
 // Form for adding a new todo item.
 
 import React from 'react';
-import {StyledTodo} from './styles/StyledTodo';
+import {StyledTodoForm, StyledTodoFormHeader} from './styles/StyledTodo';
 
 class TodoFormAddNew extends React.Component {
     constructor(props) {
@@ -9,28 +9,39 @@ class TodoFormAddNew extends React.Component {
         this.handleChangeDescription = this.handleChangeDescription.bind(this);
         this.handleChangeDate = this.handleChangeDate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {desc:"What to do", date:null};
+        this.state = {desc:"", date:null};
     }
 
     handleChangeDescription(event) {
+        event.preventDefault();
         this.setState({desc: event.target.value});
     }
 
     handleChangeDate(event) {
+        event.preventDefault();
         this.setState({date: event.target.value});
     }
 
     handleSubmit(event) {
-        this.props.onAddTodo(this.state.desc, this.state.date);
         event.preventDefault();
+        if (this.state.date) {
+            this.props.onAddTodo(this.state.desc, this.state.date);
+        }
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.desc} onChange={this.handleChangeDescription} />
-                <input type="date" onChange={this.handleChangeDate} />
-                <input type="submit" value="Submit" />
+                Task Description
+                <input type="text" className="description" value={this.state.desc} onChange={this.handleChangeDescription} />
+                <br />
+                <br />
+                Due Date
+                <br />
+                <input type="date" className="datebox" onChange={this.handleChangeDate} />
+                <br />
+                <br />
+                <input type="submit" className="taskSubmit" value="Add New Task" />
             </form>
         );
     }
@@ -38,10 +49,12 @@ class TodoFormAddNew extends React.Component {
 
 const TodoForm = (props) => {
     return (
-        <div>
-            <b>Add new task.</b>
+        <StyledTodoForm>
+            <StyledTodoFormHeader>
+                Add New Task
+            </StyledTodoFormHeader>
             <TodoFormAddNew onAddTodo={props.onAddTodo} />
-        </div>
+        </StyledTodoForm>
     );
 }
 

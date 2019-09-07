@@ -2,7 +2,10 @@
 // Includes subcomponents to the dashboard
 
 import React from 'react';
-import {StyledDashboard, StyledWelcome} from './styles/StyledDashboard';
+import {StyledDashboard,
+    StyledWelcome,
+    StyledDashboardButton,
+    StyledGeneralInfo} from './styles/StyledDashboard';
 import {shortMessage} from '../todoHelper';
 import {formatDate} from '../helper';
 
@@ -23,11 +26,11 @@ const GeneralInfo = (props) => {
     };
     const habit_date = props.habitUpdate;
     return (
-        <div>
+        <StyledGeneralInfo>
             <p>It is {formatDate(cur_date_object)}.</p>
             <p>{shortMessage(props.todoList)}</p>
-            <p>Last check-in on habits: {formatDate(habit_date)}.</p>
-        </div>
+            <p>You last checked in on habits on {formatDate(habit_date)}.</p>
+        </StyledGeneralInfo>
     );
 }
 
@@ -41,9 +44,9 @@ class TodoButton extends React.Component {
     }
     render() {
         return (
-            <button onClick={this.handleClick}>
+            <StyledDashboardButton onClick={this.handleClick}>
                 To-do List
-            </button>
+            </StyledDashboardButton>
         );
     }
 }
@@ -58,9 +61,9 @@ class HabitButton extends React.Component {
     }
     render() {
         return (
-            <button onClick={this.handleClick}>
+            <StyledDashboardButton onClick={this.handleClick}>
                 Habits
-            </button>
+            </StyledDashboardButton>
         );
     }
 }
@@ -75,9 +78,9 @@ class SettingButton extends React.Component {
     }
     render() {
         return (
-            <button onClick={this.handleClick}>
+            <StyledDashboardButton onClick={this.handleClick}>
                 Settings
-            </button>
+            </StyledDashboardButton>
         );
     }
 }

@@ -11,7 +11,7 @@ import HabitCheckIn from './HabitCheckIn';
 const Habits = (props) => {
     return (
         <StyledHabits>
-            <h1>Habits</h1>
+            <h2>Habits</h2>
             <HabitList
                 habitList={props.habitList}
                 onCompleteHabit={props.onCompleteHabit}

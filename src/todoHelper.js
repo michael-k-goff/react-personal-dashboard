@@ -118,7 +118,7 @@ export const shortMessage = (todoList) => {
         "This Year":"this year",
         "Future":"in the future"
     }[blocks[0][0]];
-    return `You have ${num} thing${num===1?"":"s"} to do ${message}.`;
+    return `You have ${num} task${num===1?"":"s"} to do ${message}.`;
 }
 
 // Add a new todo to the list.

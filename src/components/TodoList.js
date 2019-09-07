@@ -2,7 +2,11 @@
 // Not the form for adding a new item.
 
 import React from 'react';
-import {StyledTodo} from './styles/StyledTodo';
+import {StyledTodoList,
+    StyledTodoBlock,
+    StyledTodoItem,
+    StyledTodoBlockTitle,
+    StyledTodoCompleteButton} from './styles/StyledTodo';
 
 // Import helpers
 import {blockTodo} from '../todoHelper';
@@ -19,9 +23,9 @@ class TodoCompleteButton extends React.Component {
     }
     render () {
         return (
-            <button onClick={this.handleClick}>
+            <StyledTodoCompleteButton onClick={this.handleClick}>
                 Done!
-            </button>
+            </StyledTodoCompleteButton>
         );
     }
 }
@@ -29,13 +33,20 @@ class TodoCompleteButton extends React.Component {
 // Component for a single todo litem
 const TodoItem = (props) => {
     return (
-        <div>
-            <TodoCompleteButton
-                onCompleteTodo={props.onCompleteTodo}
-                todoIndex={props.todoIndex}
-            />
-            {props.todo.description}: {formatDate(props.todo)}
-        </div>
+        <StyledTodoItem>
+            <div className="todoTaskDescription">
+                {props.todo.description}
+            </div>
+            <div className="todoTaskDate">
+                {formatDate(props.todo)}
+            </div>
+            <div className="todoTaskComplete">
+                <TodoCompleteButton
+                    onCompleteTodo={props.onCompleteTodo}
+                    todoIndex={props.todoIndex}
+                />
+            </div>
+        </StyledTodoItem>
     );
 }
 
@@ -51,16 +62,12 @@ const TodoBlock = (props) => {
         />
     )
     return (
-        <div>
-            <div>
-                <b>
-                    {props.blockTitle}
-                </b>
-            </div>
-            <div>
-                {listTodo}
-            </div>
-        </div>
+        <StyledTodoBlock>
+            <StyledTodoBlockTitle>
+                {props.blockTitle}
+            </StyledTodoBlockTitle>
+            {listTodo}
+        </StyledTodoBlock>
     );
 }
 
@@ -77,7 +84,9 @@ const TodoList = (props) => {
         />
     )
     return (
-        <div>{listBlocks}</div>
+        <StyledTodoList>
+            {listBlocks}
+        </StyledTodoList>
     );
 }
 

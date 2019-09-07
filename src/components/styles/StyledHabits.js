@@ -5,4 +5,9 @@ export const StyledHabits = styled.div`
     height: 100%;
     font-size: 16px;
     padding: 5px;
+    float: left;
+    > h2 {
+        padding: 5px;
+        margin: 0px;
+    }
 `;
