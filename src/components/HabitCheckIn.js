@@ -1,12 +1,18 @@
 import React from 'react';
 import {formatDate} from '../helper';
 
+import {StyledHabitCheckIn,
+        StyledHabitCheckInFormItem,
+        StyledHabitCheckInFormBody,
+        StyledHabitCheckInFormSubmit,
+        StyledHabitCheckInHeader} from './styles/StyledHabits';
+
 class HabitCheckIn extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
-        this.state = {dates: props.habitList.map((habit)=>"1899-12-31"), habitUpdate:props.habitUpdate};
+        this.state = {dates: props.habitList.map((habit)=>"1899-12-31")};
     }
 
     handleSubmit(event) {
@@ -28,19 +34,31 @@ class HabitCheckIn extends React.Component {
             return (e) => this.handleDateChange(e,index);
         }
         const habitList = this.props.habitList.map((habit,index) =>
-            <div key={index}>
-                {habit.description}
-                &nbsp;&nbsp;&nbsp;&nbsp; Habit broken?
-                <input type="date" onChange={callbackGenerator(index)} />
-            </div>
+            <StyledHabitCheckInFormItem key={index}>
+                <div className="habitDescription">{habit.description}</div>
+                <div className="habitDateForm">
+                    <input
+                        type="date"
+                        className="checkinDatebox"
+                        onChange={callbackGenerator(index)}
+                    />
+                </div>
+            </StyledHabitCheckInFormItem>
         );
-        console.log(formatDate(this.state.habitUpdate));
         return (
-            <form onSubmit={this.handleSubmit}>
-                Last check-in was on {formatDate(this.state.habitUpdate)}.
-                {habitList}
-                <input type="submit" value="Update" />
-            </form>
+            <StyledHabitCheckIn>
+                <StyledHabitCheckInHeader>
+                    Last check-in was on {formatDate(this.props.habitUpdate)}. Mark any habits that were broken and the new dates from which you have kept them.
+                </StyledHabitCheckInHeader>
+                <form onSubmit={this.handleSubmit}>
+                    <StyledHabitCheckInFormBody>
+                        {habitList}
+                    </StyledHabitCheckInFormBody>
+                    <StyledHabitCheckInFormSubmit>
+                        <input type="submit" className="checkinSubmit" value="Update" />
+                    </StyledHabitCheckInFormSubmit>
+                </form>
+            </StyledHabitCheckIn>
         );
     }
 }

@@ -1,7 +1,10 @@
 // Habits component
 
 import React from 'react';
-import {StyledHabits} from './styles/StyledHabits';
+import {StyledHabits,
+        StyledHabitHeader,
+        StyledHabitLeftColumn,
+        StyledHabitBuffer} from './styles/StyledHabits';
 
 // Import helpers
 import HabitList from './HabitList';
@@ -11,15 +14,20 @@ import HabitCheckIn from './HabitCheckIn';
 const Habits = (props) => {
     return (
         <StyledHabits>
-            <h2>Habits</h2>
-            <HabitList
-                habitList={props.habitList}
-                onCompleteHabit={props.onCompleteHabit}
-                onUpdateHabit={props.onUpdateHabit}
-            />
-            <br />
-            <HabitForm onAddHabit={props.onAddHabit} />
-            <br />
+            <StyledHabitHeader>
+                <h2>Habits</h2>
+            </StyledHabitHeader>
+            <StyledHabitLeftColumn>
+                <HabitList
+                    habitList={props.habitList}
+                    onCompleteHabit={props.onCompleteHabit}
+                    onUpdateHabit={props.onUpdateHabit}
+                />
+                <HabitForm onAddHabit={props.onAddHabit} />
+            </StyledHabitLeftColumn>
+            <StyledHabitBuffer>
+            &nbsp;
+            </StyledHabitBuffer>
             <HabitCheckIn
                 habitList={props.habitList}
                 onUpdateHabit={props.onUpdateHabit}

@@ -9,7 +9,7 @@ import Settings from './components/Settings';
 
 // Import helper functions
 import {initTodo, addTodo} from './todoHelper';
-import {initHabits, initHabitUpdate, addHabit, updateHabit} from './habitHelper';
+import {initHabits, initHabitUpdate, addHabit, updateHabit, habitUpdateToday} from './habitHelper';
 import {initName} from './helper';
 
 class App extends React.Component {
@@ -59,12 +59,14 @@ class App extends React.Component {
     update_habit(habit_num, date) {
         const habit_list = this.state.habitList
         habit_list[habit_num] = updateHabit(habit_list[habit_num], date);
-        this.setState({habitList: habit_list});
+        this.setState({habitList: habit_list, habitDate: habitUpdateToday()});
     }
 
     // Add a new habit
     add_habit(desc) {
-        this.setState({habitList: addHabit(desc, this.state.habitList)});
+        if (desc.length > 0) {
+            this.setState({habitList: addHabit(desc, this.state.habitList)});
+        }
     }
 
     // Change name

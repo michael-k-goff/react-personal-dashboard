@@ -1,11 +1,17 @@
 import React from 'react';
 
+import {StyledHabitForm,
+        StyledHabitFormWrapper,
+        StyledHabitFormHeader,
+        StyledHabitFormDescription,
+        StyledHabitFormSubmit} from './styles/StyledHabits';
+
 class HabitFormAddNew extends React.Component {
     constructor(props) {
         super(props);
         this.handleChangeDescription = this.handleChangeDescription.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {desc:"What to do"};
+        this.state = {desc:""};
     }
 
     handleChangeDescription(event) {
@@ -15,24 +21,38 @@ class HabitFormAddNew extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.onAddHabit(this.state.desc);
+        this.setState({"desc":""});
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.desc} onChange={this.handleChangeDescription} />
-                <input type="submit" value="Submit" />
-            </form>
+            <StyledHabitForm>
+                <form onSubmit={this.handleSubmit}>
+                    <p>Description of Habit</p>
+                    <StyledHabitFormDescription>
+                        <input
+                            type="text"
+                            value={this.state.desc}
+                            onChange={this.handleChangeDescription}
+                        />
+                    </StyledHabitFormDescription>
+                    <StyledHabitFormSubmit>
+                        <input type="submit" value="Submit" />
+                    </StyledHabitFormSubmit>
+                </form>
+            </StyledHabitForm>
         );
     }
 }
 
 const HabitForm = (props) => {
     return (
-        <div>
-            <b>Add new habit.</b>
+        <StyledHabitFormWrapper>
+            <StyledHabitFormHeader>
+                Add new habit.
+            </StyledHabitFormHeader>
             <HabitFormAddNew onAddHabit={props.onAddHabit} />
-        </div>
+        </StyledHabitFormWrapper>
     );
 }
 

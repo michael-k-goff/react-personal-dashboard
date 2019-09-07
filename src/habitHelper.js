@@ -26,6 +26,15 @@ export const initHabitUpdate = () => {
         };
 }
 
+export const habitUpdateToday = () => {
+    const cur_date = new Date();
+    return {
+        year:parseInt(cur_date.getFullYear()),
+        month:parseInt(cur_date.getMonth()+1),
+        day:parseInt(cur_date.getDate())
+    };
+}
+
 export const addHabit = (desc, habitList) => {
     const cur_date = new Date();
     habitList = habitList.concat(

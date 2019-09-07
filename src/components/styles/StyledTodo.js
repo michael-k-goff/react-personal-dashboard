@@ -27,7 +27,7 @@ export const StyledTodoList = styled.div`
 `;
 
 export const StyledTodoBlock = styled.div`
-    float left;
+    float: left;
     width: 100%;
     margin-bottom: 20px;
 `;

@@ -24,8 +24,9 @@ class TodoFormAddNew extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state.date) {
+        if (this.state.date && this.state.desc.length > 0) {
             this.props.onAddTodo(this.state.desc, this.state.date);
+            this.setState({desc:""});
         }
     }
 
