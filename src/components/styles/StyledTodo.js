@@ -74,6 +74,8 @@ export const StyledTodoForm = styled.div`
         border: 2px solid black;
         border-radius: 4px;
         font-size: 18px;
+        margin-bottom: 20px;
+        display: block;
         :focus {
             background-color: lightblue;
         }
@@ -84,6 +86,8 @@ export const StyledTodoForm = styled.div`
         border: 2px solid black;
         border-radius: 4px;
         font-size: 18px;
+        margin-bottom: 20px;
+        display: block;
     }
     > * input.taskSubmit {
         font-size: 24px;

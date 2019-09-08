@@ -35,13 +35,8 @@ class TodoFormAddNew extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 Task Description
                 <input type="text" className="description" value={this.state.desc} onChange={this.handleChangeDescription} />
-                <br />
-                <br />
                 Due Date
-                <br />
                 <input type="date" className="datebox" onChange={this.handleChangeDate} />
-                <br />
-                <br />
                 <input type="submit" className="taskSubmit" value="Add New Task" />
             </form>
         );

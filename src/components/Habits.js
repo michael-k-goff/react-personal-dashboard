@@ -26,7 +26,7 @@ const Habits = (props) => {
                 <HabitForm onAddHabit={props.onAddHabit} />
             </StyledHabitLeftColumn>
             <StyledHabitBuffer>
-            &nbsp;
+                &nbsp;
             </StyledHabitBuffer>
             <HabitCheckIn
                 habitList={props.habitList}
