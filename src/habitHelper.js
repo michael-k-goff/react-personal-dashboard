@@ -5,10 +5,8 @@ import {saveData} from './helper';
 
 export const initHabits = () => {
     var arr = [
-        {description:"Diet", year:2019, month:1, day:1},
-        {description:"Exercise", year:2019, month:2, day:21},
-        {description:"Work", year:2018, month:3, day:31},
-        {description:"Sleep", year:2019, month:8, day:15}
+        {description:"Sample Habit 1", year:2019, month:1, day:1},
+        {description:"Sample Habit 2", year:2019, month:2, day:21}
     ];
     return ('habitList' in window.localStorage && saveData) ?
         JSON.parse(window.localStorage.getItem('habitList')) :

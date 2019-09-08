@@ -11,21 +11,10 @@ import {saveData} from './helper';
 // Will eventually be initialized to be empty, but for now some test values
 export const initTodo = () => {
     var arr = [
-        {description:"Today 1", year:2019, month:9, day:6},
-        {description:"Today 2", year:2019, month:9, day:6},
-        {description:"Tomorrow 1", year:2019, month:9, day:7},
-        {description:"Tomorrow 2", year:2019, month:9, day:7},
-        {description:"This Week 1", year:2019, month:9, day:9},
-        {description:"This Week 2", year:2019, month:9, day:10},
-        {description:"This Month 1", year:2019, month:9, day:20},
-        {description:"This Month 2", year:2019, month:9, day:19},
-        {description:"This Year 1", year:2019, month:11, day:20},
-        {description:"This Year 2", year:2020, month:4, day:19},
-        {description:"Future 1", year:2020, month:12, day:20},
-        {description:"Future 2", year:2021, month:9, day:19},
-        {description:"Late Task 1", year:2019, month:8, day:15},
-        {description:"Late Task 2", year:2019, month:8, day:16},
-        {description:"Late Task 3", year:2019, month:8, day:14}
+        {description:"Sample Overdue Task 1", year:2019, month:9, day:1},
+        {description:"Sample Overdue Task 2", year:2019, month:1, day:1},
+        {description:"Sample Future Task 1", year:2020, month:9, day:1},
+        {description:"Sample Future Task 2", year:2021, month:9, day:1},
     ];
     return ('todoList' in window.localStorage && saveData) ?
         JSON.parse(window.localStorage.getItem('todoList')) :
