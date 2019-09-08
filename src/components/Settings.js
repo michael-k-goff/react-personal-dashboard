@@ -2,6 +2,10 @@
 
 import React from 'react';
 
+import {StyledSettings,
+        StyledSettingsHeading,
+        StyledSettingsForm} from './styles/StyledSettings';
+
 class Settings extends React.Component {
     constructor(props) {
         super(props);
@@ -22,14 +26,26 @@ class Settings extends React.Component {
 
     render() {
         return (
-            <div>
-                Settings
-                <form onSubmit={this.handleSubmit}>
-                    Change name
-                    <input type="text" value={this.state.name} onChange={this.handleNameChange} />
-                    <input type="submit" value="Change Name" />
-                </form>
-            </div>
+            <StyledSettings>
+                <StyledSettingsHeading>
+                    <h2>Settings</h2>
+                </StyledSettingsHeading>
+                <StyledSettingsForm onSubmit={this.handleSubmit}>
+                    Enter your name
+                    <br />
+                    <input type="text"
+                        className="settingsNameChange"
+                        value={this.state.name}
+                        onChange={this.handleNameChange}
+                    />
+                    <br />
+                    <input
+                        className="settingsNameChangeSubmit"
+                        type="submit"
+                        value="Change Name"
+                    />
+                </StyledSettingsForm>
+            </StyledSettings>
         );
     }
 }
