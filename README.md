@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Project Overview
 
-This is a personal dashboard, allowing the user to set and track a personal to-do list and habits. As of this writing (September 7, 2019), the app is running [here](https://dreamy-ramanujan-eaf0fd.netlify.com/).
+This is a personal dashboard, allowing the user to set and track a personal to-do list and habits. As of this writing (September 14, 2019), the app is running [here](https://dreamy-ramanujan-eaf0fd.netlify.com/).
 
 To run locally, clone the repo and in the project directory, run `npm start` (development mode) or `num run build` (production mode).
 
